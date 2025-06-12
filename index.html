@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Máy May Hữu Thân</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      padding: 60px 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+
+    .contact {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .contact a {
+      color: #00d5ff;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: 0.3s;
+    }
+
+    .contact a:hover {
+      color: #ffcc00;
+    }
+
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      z-index: 0;
+      user-select: none;
+      pointer-events: none;
+      color: white;
+      font-size: 18px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+
+    <style>
+      .datetime {
+        position: fixed;
+        top: 10px;
+        right: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 14px;
+        color: #fff;
+        z-index: 2;
+      }
+    </style>
+    
+<body>
+  <div class="container">
+    <!-- Ảnh đại diện -->
+    <img src="avatar.jpg" alt="Máy May Hữu Thân" class="avatar" />
+
+    <h1>Máy May Hữu Thân</h1>
+    <p>Chuyên cung cấp máy ép mếch, máy may công nghiệp chất lượng cao.<br>Uy tín - Nhanh chóng - Giá tốt.</p>
+
+    <div class="contact">
+      📞 Liên hệ:
+      <a href="https://www.facebook.com/share/19GkPFwQWu/?mibextid=wwXIfr" target="_blank">Facebook</a> |
+      <a href="https://www.zalo.com/0972177178" target="_blank">Zalo</a>
+    </div>
+  </div>
+
+  <script>
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.textContent = '❄';
+
+      snowflake.style.left = Math.random() * window.innerWidth + 'px';
+      snowflake.style.animationDuration = 2 + Math.random() * 3 + 's';
+      snowflake.style.opacity = Math.random();
+      snowflake.style.fontSize = 12 + Math.random() * 18 + 'px';
+
+      document.body.appendChild(snowflake);
+
+      setTimeout(() => {
+        snowflake.remove();
+      }, 5000);
+    }
+
+    setInterval(createSnowflake, 150);
+  </script>
+
+  <div class="datetime" id="datetime">--:--:--</div>
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      const datetime = now.toLocaleString('vi-VN');
+      document.getElementById('datetime').textContent = datetime;
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+  </script>
+
+  <style>
+    .marquee {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #000;
+      padding: 10px 0;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      z-index: 3;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 15s linear infinite, rainbow 5s infinite;
+    }
+
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @keyframes rainbow {
+      0% { color: red; }
+      16% { color: orange; }
+      33% { color: yellow; }
+      50% { color: green; }
+      66% { color: blue; }
+      83% { color: indigo; }
+      100% { color: violet; }
+    }
+  </style>
+  <div class="marquee">
+    <span>Máy May Hữu Thân - 0 9 7 2 1 7 7 1 7 8 - 154 Nguyễn Đức Thuận, Long Biên, Hà Nội , Việt Nam @nguyenhuuthancopy</span>
+  </div>
+
+
+  <audio id="bg-music" loop autoplay>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Trình duyệt không hỗ trợ âm thanh.
+  </audio>
+  <button id="music-toggle" style="
+    position: fixed;
+    top: 80px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10;
+  ">Tắt nhạc</button>
+  <script>
+    const music = document.getElementById('bg-music');
+    const btn = document.getElementById('music-toggle');
+    btn.addEventListener('click', () => {
+      if (music.paused) {
+        music.play();
+        btn.textContent = 'Tắt nhạc';
+      } else {
+        music.pause();
+        btn.textContent = 'Bật nhạc';
+      }
+    });
+  </script>
+</body>
+
+
+
+
+</html>
